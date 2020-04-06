@@ -44,6 +44,10 @@ io.on("connection", function (socket) {
 
 const port = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 http.listen(port, function () {
+=======
+http.listen(3000, function () {
+>>>>>>> a78a69ab03f4dd86bab144e2902c49019ce85192
   console.log("listening on *:3000");
 });
