@@ -40,7 +40,7 @@ navigator.mediaDevices
 
       peer.on("stream", function (stream) {
         let video = document.createElement("video");
-        video.id = "peerVideo";
+        video.setAttribute("id", "peerVideo");
         video.srcObject = stream;
         document.querySelector("#peerDiv").appendChild(video);
 
