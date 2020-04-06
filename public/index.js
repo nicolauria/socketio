@@ -40,6 +40,7 @@ navigator.mediaDevices
 
       peer.on("stream", function (stream) {
         let video = document.createElement("video");
+        video.id = "peerVideo";
         video.srcObject = stream;
         document.querySelector("#peerDiv").appendChild(video);
 
@@ -67,5 +68,12 @@ navigator.mediaDevices
 
     socket.on("SessionActive", function () {
       document.write("Session Active. Please come back later");
+    });
+
+    socket.on("Disconnect", function () {
+      document.getElementById("peerVideo").remove();
+      if (client.peer) {
+        client.peer.destroy();
+      }
     });
   });

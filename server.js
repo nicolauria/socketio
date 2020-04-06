@@ -40,6 +40,13 @@ io.on("connection", function (socket) {
   socket.on("Answer", function (offer) {
     this.broadcast.emit("ReceiveAnswer", offer);
   });
+
+  socket.on("disconnect", function () {
+    if (clients > 0) {
+      if (clients <= 2) this.broadcast.emit("Disconnect");
+      clients--;
+    }
+  });
 });
 
 const port = process.env.PORT || 3000;
