@@ -25,7 +25,7 @@ io.on("connection", function (socket) {
     // don't attempt to make a connection until there is 2 clients
     if (clients < 2) {
       if (clients == 1) {
-        this.emit("CreatePeer");
+        this.broadcast.emit("CreatePeer");
       }
     } else {
       this.emit("SessionActive");
